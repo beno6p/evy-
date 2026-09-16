@@ -1,0 +1,17 @@
+name: OpenSource Guardian
+description: Audit repository hygiene locally in GitHub Actions
+inputs:
+  fail-on:
+    description: Severity threshold that should fail the job
+    required: false
+    default: error
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        python -m pip install .
+        opensource-guardian . --fail-on "${{ inputs.fail-on }}"
+branding:
+  icon: shield
+  color: blue
