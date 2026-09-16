@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opensource-guardian"
+version = "0.1.0"
+description = "Local-first audit toolkit for open-source repository health and security hygiene."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Benjamin Degert"}]
+keywords = ["open-source", "security", "github", "git", "ci", "maintainers", "audit"]
+classifiers = ["Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only", "License :: OSI Approved :: MIT License", "Environment :: Console"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+opensource-guardian = "opensource_guardian.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
